@@ -1,16 +1,15 @@
 tasks:
   - init: |
-      sudo docker pull registry.jetbrains.team/p/prj/containers/projector-idea-c
-      sudo docker pull registry.jetbrains.team/p/prj/containers/projector-idea-u
+      # Pull projector docker and build with IntelliJ Idea 2021.3 Community Edition
+      git clone https://github.com/JetBrains/projector-docker.git /workspace/template-jetbrains-intellij-idea/projector-docker
+      cd /workspace/template-jetbrains-intellij-idea/projector-docker
+      ./clone-projector-core.sh
+      ./build-container.sh projector-idea-c:2021.3.1 https://download.jetbrains.com/idea/ideaIC-2021.3.1.tar.gz
     command: |
       sudo mkdir -p .jetbrains; sudo touch .jetbrains/.gitkeep; sudo chown -R 1000:1000 .jetbrains
-
-      # Community Edition
-      sudo docker run --rm -p 8887:8887 -v /workspace/template-jetbrains-intellij-idea/.jetbrains:/home/projector-user -it registry.jetbrains.team/p/prj/containers/projector-idea-c
-
-      # Ultimate Edition
-      #sudo docker run --rm -p 8887:8887 -v /workspace/template-jetbrains-intellij-idea/.jetbrains:/home/projector-user -it registry.jetbrains.team/p/prj/containers/projector-idea-u
-
+      # Run community edition
+      sudo docker run --rm -p 8887:8887 -v /workspace/template-jetbrains-intellij-idea/.jetbrains:/home/projector-user -it projector-idea-c:2021.3.1
+     
 ports:
   - port: 8887
     visibility: private
