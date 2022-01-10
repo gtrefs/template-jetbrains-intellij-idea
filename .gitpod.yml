@@ -6,6 +6,7 @@ tasks:
       ./clone-projector-core.sh
       ./build-container.sh projector-idea-c:2021.3.1 https://download.jetbrains.com/idea/ideaIC-2021.3.1.tar.gz
     command: |
+      cd /workspace/template-jetbrains-intellij-idea
       sudo mkdir -p .jetbrains; sudo touch .jetbrains/.gitkeep; sudo chown -R 1000:1000 .jetbrains
       # Run community edition
       sudo docker run --rm -p 8887:8887 -u 1000:1000 -v /workspace/template-jetbrains-intellij-idea/.jetbrains:/home/projector-user -it projector-idea-c:2021.3.1
