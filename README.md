@@ -1,6 +1,6 @@
 # A JetBrains IntelliJ IDEA template on Gitpod
 
-This is a [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/).
+This is a [JetBrains IntelliJ IDEA](https://www.jetbrains.com/idea/) template configured for ephemeral development environments on [Gitpod](https://www.gitpod.io/). It pulls the IntelliJ Idea 2021.3 Community Edition which supports Java 17.
 
 ## Next Steps
 
